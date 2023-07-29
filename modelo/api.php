@@ -42,11 +42,13 @@
 			try {
 				$ObjetoColor = new objeto();				
 				$Validar = new valida();
-				$Valor = [];
+				//se le dio el objeto al campo Valor
+				$Valor = $ObjetoColor->ObtenerObjeto();
 				
-				$Validar->CreaRespuesta("0", "", $Valor);
-				
-				echo json_encode($Validar->ObtenerResponse(), JSON_PRETTY_PRINT  | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+				//Se cambio la respuesta del codigo de Validat->obtenerResponse a Crearespuesta
+				//$Validar->CreaRespuesta("0", "", $Valor)
+
+				echo json_encode($Validar->CreaRespuesta("0", "", $Valor), JSON_PRETTY_PRINT  | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
 			} catch (Exception $e) {
 				$Validar->CreaRespuesta("-1", "Error", []);
 			}

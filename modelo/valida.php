@@ -15,10 +15,12 @@
 					$this->response["codigo_respuesta"] = 0;
 					$this->response["mensaje"] = "Ok";
 					$this->response["listaobjetos"] = $objeto;
+					return $this->response;
 					break;				
 				case '-1':
 					$this->response["codigo_respuesta"] = -1;
 					$this->response["mensaje"] = $mensaje;
+					return $this->response;
 					break;
 			}
 		}
